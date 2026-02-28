@@ -1,0 +1,10 @@
+Machine learning is a field of artificial intelligence.
+Deep learning uses neural networks.
+Natural language processing helps computers understand text.
+Vector databases store embeddings.
+Semantic search finds meaning in text.
+Artificial intelligence automates tasks.
+Python is widely used in AI.
+Neural networks learn patterns from data.
+Recommendation systems suggest products.
+Chatbots communicate with users.

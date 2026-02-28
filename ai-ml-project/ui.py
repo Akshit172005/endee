@@ -1,26 +1,25 @@
+import streamlit as st
 from sentence_transformers import SentenceTransformer
 import numpy as np
 
-print("\nAI File Search using Endee Vector Database\n")
+st.title("AI Semantic Search using Endee Vector Database")
 
-# Load embedding model
+st.write("Search knowledge using AI vector search")
+
+# Load model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# Load text file
+# Load file
 with open("data.txt","r") as file:
     documents = file.readlines()
 
 documents = [d.strip() for d in documents]
 
-# Generate embeddings
 embeddings = model.encode(documents)
 
-while True:
+query = st.text_input("Enter your query")
 
-    query = input("\nEnter query (or exit): ")
-
-    if query.lower()=="exit":
-        break
+if query:
 
     query_vector = model.encode([query])[0]
 
@@ -28,7 +27,7 @@ while True:
 
     top_k = np.argsort(scores)[-5:][::-1]
 
-    print("\nTop Results:\n")
+    st.write("Top Results:")
 
     for i,index in enumerate(top_k):
-        print(str(i+1)+".",documents[index])
+        st.write(str(i+1)+". "+documents[index])
